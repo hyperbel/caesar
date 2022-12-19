@@ -1,18 +1,20 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
 int main(void) {
-
 	while (1)
 	{
-		char buff[BUFSIZ];
-		fgets(buff, sizeof buff, stdin);
-		if (buff[strlen(buff)-1] == '\n') {
-			for (size_t i = 0; i < strlen(buff)-1; i++) {
-				printf("%c", buff[i] + 1);
+		char ch[BUFSIZ] = { 0 };
+		char outch[BUFSIZ] = { 0 };
+		size_t i;
+
+		while(fgets(ch, sizeof(ch), stdin) != NULL)
+		{
+			for (i = 0; i <= sizeof(ch); i++)
+			{
+				if (ch[i] == '\n') { printf("%c", ch[i]); }
+				else { printf("%c", ch[i] + 1); }
 			}
-		} else {
-			printf("\n");
 		}
 	}
 
