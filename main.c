@@ -5,22 +5,15 @@ int main(void) {
 
 	while (1)
 	{
-		char* line;
-		size_t length = 0;
-		ssize_t lineSize = 0;
-
-		//read stdin and get size of line
-		lineSize = getline(&line, &length, stdin);
-
-		// loop over chars in input
-		for(size_t i = 0; i < lineSize - 1; i++)
-		{
-			// print char + 1 for caesar cipher
-			printf("%c", line[i] + 1);	
+		char buff[BUFSIZ];
+		fgets(buff, sizeof buff, stdin);
+		if (buff[strlen(buff)-1] == '\n') {
+			for (size_t i = 0; i < strlen(buff)-1; i++) {
+				printf("%c", buff[i] + 1);
+			}
+		} else {
+			printf("\n");
 		}
-
-		free(line);
-
 	}
 
 	return 0;
