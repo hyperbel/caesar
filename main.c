@@ -2,13 +2,16 @@
 #include <stdlib.h>
 
 int main(void) {
-  char* line;
-  size_t length = 0;
-  ssize_t lineSize = 0;
+	char* line;
+	size_t length = 0;
+	ssize_t lineSize = 0;
 
-  lineSize = getline(&line, &length, stdin);
+	lineSize = getline(&line, &length, stdin);
+
+
+
 	printf("%s", line);	
 
-  free(line);
-  return 0;
+	free(line);
+	return 0;
 }
