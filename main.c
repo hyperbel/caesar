@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void) {
-	while (1)
+int argparse(int argc, char* argv[]) {
+	
+}
+
+int main(int argc, char *argv[]) {
+
+	size_t n = argparse(argc, argv);
+	while (n > 0)
 	{
 		char ch[BUFSIZ] = { 0 };
 		size_t i;
@@ -20,3 +26,4 @@ int main(void) {
 
 	return 0;
 }
+
