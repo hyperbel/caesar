@@ -2,7 +2,10 @@
 #include <string.h>
 
 int argparse(int argc, char* argv[]) {
-	
+	for(int i = 0; i < argc; i++)
+		printf("%s ",argv[i]);
+	//if (sizeof(argv)/argv == 2)
+	return 0;
 }
 
 int main(int argc, char *argv[]) {
