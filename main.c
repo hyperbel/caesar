@@ -5,20 +5,20 @@ int argparse(int argc, char* argv[]) {
 	if (argv[1] == "--help") {
 		printf("Usage: 'caesar -nN', where N is the shift of letters you want to add");
 		return 0;
-	} else if (argv[1][0] == "-" && argv[1][1] == "n") {
-		if (strlen(argv[1]) > 4) {
-			printf("you dont need a higher value than 99 (trust me)");
-			return -1;
-		}
+	} else {
+		char str[strlen(argv[1])];
+		char *ptr;
+		long val;
+		strcpy(str, argv[1]);
+		val = strtol(str, &ptr, strlen(argv[1]));
+		return val;
 	}
-	return 0;
 }
 
 int main(int argc, char *argv[]) {
 
 	size_t n = argparse(argc, argv);
-	if (n == -1) return -1;
-	while (n > 0)
+	while (1)
 	{
 		char ch[BUFSIZ] = { 0 };
 		size_t i;
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 			for (i = 0; i <= sizeof(ch); i++)
 			{
 				if (ch[i] == '\n') { printf("%c", ch[i]); }
-				else { printf("%c", ch[i] + 1); }
+				else { printf("%c", ch[i] + n); }
 			}
 			memset(ch, 0, sizeof(ch));
 		}
@@ -36,4 +36,3 @@ int main(int argc, char *argv[]) {
 
 	return 0;
 }
-
