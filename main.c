@@ -6,7 +6,7 @@ int argparse(int argc, char* argv[]) {
 		printf("Usage: 'caesar -nN', where N is the shift of letters you want to add");
 		return 0;
 	} else if (argv[1][0] == "-" && argv[1][1] == "n") {
-		if (strlen(argv[1] > 4) {
+		if (strlen(argv[1]) > 4) {
 			printf("you dont need a higher value than 99 (trust me)");
 			return -1;
 		}
